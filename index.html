@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box form-box">
+            <div class = "form-header">
+                <h2>Sign up</h2> <br>
+            </div>
+            <form action="login.html" method="post">
+                <div class = "field input">
+                    <label for="longname">Nama</label>
+                    <input type="text" name="longname"  id="longname" required>
+                </div>
+                <div class = "field input">
+                    <label for="age">Umur</label>
+                    <input type="text" name="age"  id="age" required>
+                </div>
+                <div class = "field input">
+                    <label for="username">Username</label>
+                    <input type="text" name="username"  id="username" required>
+                </div>
+                <div class = "field input">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class = "field">
+                    <input type="submit" name="submit" class = "button" value = "Sign Up" required>
+                </div>
+                <div class = "link"> 
+                    You have an account? <a href="login.html"> Login </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.body{
+    background: #e4e9f7;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.box{
+    background: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                0 32px 64px -48px rgba(0,0,0,0.5);
+}
+
+.form-box{
+    width: 450px;
+    margin: 0 10px;
+}
+
+.form-box header{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.form-box .field{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+.form-box form.field input{
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.button{
+    height: 35px;
+    background: #ffc1d2;
+    border: 0;
+    border-radius: 5px;
+    color : #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    padding: 0px 10px;
+}
+
+button.hover{
+    opacity: 0.82;
+}
+
+.submit{
+    width: 100%;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+
+.sidebar {
+    background: #ffdde6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 60px;
+    z-index: 100;
+}
+
+.sidebar-header {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.sidebar-menu {
+    padding : 0 10px;
+}
+
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #fff8fa;
+}
+
+table {
+    margin: 0 auto;
+    width: 80%; 
+    max-width: 1200px; 
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 8px;
+    border: 1px solid #333;
+}
+
+table th {
+    background-color: #ffdde6;
+}
+
+table th:first-child, table td:first-child {
+    width: 20%;
+}
+
+table td {
+    text-align: center;
+}
+
+table td button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    background-color: #ffc1d2;
+    border: 0;;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+table td button:hover {
+    background-color: #333;
+}
