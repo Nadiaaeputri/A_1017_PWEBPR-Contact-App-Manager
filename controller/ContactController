@@ -1,0 +1,63 @@
+<?php
+include_once 'models/contact.php';
+
+class ContactController
+{
+    static function createContact()
+    {
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . BASEURL . 'login?auth=false');
+            exit;
+        } else {
+            $post = array_map('htmlspecialchars', $_POST);
+            $contact = Contact::createContact([
+                'NO_HP' => $post['NO_HP'],
+                'Owner' => $post['Owner'],
+                'NO_ID' => $_SESSION['NO_ID']
+            ]);
+
+            if ($contact) {
+                header('Location: ' . BASEURL . 'dashboard');
+            } else {
+                echo ('Terjadi kesalahan');
+            }
+        }
+    }
+
+    static function updateContact()
+    {
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . BASEURL . 'login?auth=false');
+            exit;
+        } else {
+            $post = array_map('htmlspecialchars', $_POST);
+            $contact = Contact::updateContact([
+                'id' => $post['contactId'],
+                'NO_HP' => $post['NO_HP'],
+                'Owner' => $post['Owner'],
+                'NO_ID' => $_SESSION['NO_ID']
+            ]);
+            if ($contact) {
+                header('Location: ' . BASEURL . 'dashboard');
+            } else {
+                echo ('Terjadi kesalahan');
+            }
+        }
+    }
+
+    static function deleteContact()
+    {
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . BASEURL . 'login?auth=false');
+            exit;
+        } else {
+            $post = array_map('htmlspecialchars', $_POST);
+            $contact = Contact::deleteContact($_POST['contactId']);
+            if ($contact) {
+                header('Location: ' . BASEURL . 'dashboard');
+            } else {
+                echo ('Terjadi kesalahan');
+            }
+        }
+    }
+}
