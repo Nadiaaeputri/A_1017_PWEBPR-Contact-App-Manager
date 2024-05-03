@@ -1,0 +1,269 @@
+    /* Import Google Fonts */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      /* outline: none;
+      border: none; */
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: rgb(233, 233, 233);
+    }
+
+    .container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh;
+  }
+  
+    .box{
+        background: #fdfdfd;
+        display: flex;
+        flex-direction: column;
+        padding: 25px 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                    0 32px 64px -48px rgba(0,0,0,0.5);
+    }
+    
+    .form-box{
+        width: 450px;
+        margin: 0 10px;
+    }
+    
+    .form-box header{
+        font-size: 25px;
+        font-weight: 600;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border-bottom: 1px solid #e6e6e6;
+        margin-bottom: 10px;
+    }
+    
+    .form-box .field{
+        display: flex;
+        margin-bottom: 10px;
+        flex-direction: column;
+    }
+    
+    .form-box form.field input{
+        height: 40px;
+        width: 100%;
+        font-size: 16px;
+        padding: 0 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+    
+    .button{
+        height: 35px;
+        background: #8B4513;;
+        border: 0;
+        border-radius: 5px;
+        color : #fff;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 10px;
+        padding: 0px 10px;
+    }
+    
+    button.hover{
+        opacity: 0.82;
+    }
+    
+    .submit{
+        width: 100%;
+    }
+    
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+  
+    /* Sidebar Styles */
+    .sidebar {
+      display: flex;
+      width: 1200px;
+      margin: auto;
+    }
+
+    nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        height: 110vh;
+      background: #8B4513; /* Warna coklat */
+      color: #fff; /* Warna teks */
+    }
+
+    .sidebar-header {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .logo {
+      margin: 2rem 0 1rem 0;
+      padding-bottom: 3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo h1 {
+      margin-left: 1rem;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 0 auto;
+    }
+
+    li {
+      padding-bottom: 2rem;
+    }
+
+    li a {
+      font-size: 16px;
+      color: #fff; /* Warna teks */
+    }
+
+    .nav-item {
+
+    }
+
+    nav i {
+      width: 30px;
+      font-size: 18px;
+      /* text-align: center; */
+    }
+
+    .logout {
+      position: absolute;
+      bottom: 20px;
+    }
+
+    /* Main Section Styles */
+    .main {
+      width : 100%;
+    }
+
+    .main-content {
+     width: 100%;
+      background: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgb(43, 43, 43);
+      margin-bottom: 20px;
+    }
+
+    .main-body {
+        padding: 10px 10px 10px 20px;
+    }
+
+    h1 {
+      margin: 20px 10px;
+    }
+
+    .row {
+      display: flex;
+      padding: 10px;
+      margin-top: 1.3rem;
+      justify-content: space-between;
+    }
+
+    .row p {
+      color: rgb(54, 54, 54);
+      font-size: 15px;
+    }
+
+    .row p span {
+      color: blueviolet;
+    }
+
+    .Account {
+      width: 100%;
+      padding: 15px;
+      cursor: pointer;
+      /* display: flex; */
+      border-radius: 10px;
+      background: #fff;
+      margin-bottom: 15px;
+      justify-content: space-between;
+      border: 2px solid rgb(190, 190, 190);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .Tambahdata {
+      display: flex;
+      justify-content: flex-end; /* Mengatur agar konten berada di ujung kanan */
+      align-items: center; /* Mengatur agar konten berada di tengah secara vertikal */
+      width: 100%; /* Mengisi lebar penuh */
+      color : black;
+      font-size : 24px;
+  }
+  
+  .Tambahdata i {
+      margin-left: 5px; /* Memberikan ruang antara ikon dan teks jika diperlukan */
+  }
+  
+
+    /* Table Styles */
+    .Account_details {
+      /* display: flex; */
+      align-items: center;
+        /* width: calc(100% - 40px);  */
+      }
+  
+      .Account_details table {
+        width: 100%;
+        border-collapse: collapse;
+        box-sizing: border-box;
+      }
+  
+      .Account_details th,
+      .Account_details td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+      }
+  
+      .Account_details th {
+        background-color: #8B4513;
+        color: #fff;
+      }
+  
+      .Account_details tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      /* CSS untuk menengahkan ikon dan memberikan sedikit ruang di antara keduanya */
+      .Account_details td a {
+        display: inline-block; /* Mengubah tautan menjadi elemen blok */
+        margin-bottom: 0 5px; /* Memberikan sedikit ruang di antara ikon */
+        text-align: center; /* Menengahkan ikon */
+        width: 100%; /* Lebar ikon */
+        padding-bottom : 10px;
+        color : black;
+      }
+
+      .Account_details td a i {
+        display: block; /* Mengubah ikon menjadi elemen blok */
+      }
+
