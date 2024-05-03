@@ -1,59 +1,67 @@
 <?php
-include_once __DIR__ . '/../app/config/dbconn.php';
+include_once __DIR__ . '/../config/dbconn.php';
 
 class Contact
 {
-    private $conn;
+    private static $conn;
 
-    public function __construct($conn)
+    static function setConnection($connection)
     {
-        $this->conn = $conn;
+        self::$conn = $connection;
     }
 
-    public function getContacts($userId)
+    static function getAllContacts($userId)
     {
-        $stmt = $this->conn->prepare("SELECT * FROM list_contact WHERE NO_ID = ?");
+        $stmt = self::$conn->prepare("SELECT * FROM list_contact WHERE NO_ID = ?");
         $stmt->bind_param("i", $userId);
         $stmt->execute();
         $result = $stmt->get_result();
-        $contacts = array();
+        $contacts = [];
         while ($row = $result->fetch_assoc()) {
             $contacts[] = $row;
         }
+        $stmt->close();
         return $contacts;
     }
 
-    public function createdata ($data=[])
+    static function createContact($data=[])
     {
-        extract($data);
-        $stmt = $this->conn->prepare("INSERT INTO list_contact (NO_HP, Owner) VALUES (?, ?, NOW())");
-        $stmt->bind_param("ssi", $NO_HP, $Owner);
+        $stmt = self::$conn->prepare("INSERT INTO list_contact (NO_HP, Owner) VALUES (?, ?, NOW())");
+        $stmt->bind_param("ssi", $data['NO_HP'], $data['Owner'], $data['NO_ID']);
         $stmt->execute();
-        return $stmt->insert_id;
+        $insertedId = $stmt->insert_id;
+        $stmt->close();
+        return $insertedId;
     }
 
-    public function getContactById($id)
+    static function getContactById($id)
     {
-        $stmt = $this->conn->prepare("SELECT * FROM list_contact WHERE NO_ID = ?");
+        $stmt = self::$conn->prepare("SELECT * FROM list_contact WHERE NO_ID = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc();
+        $contact = $result->fetch_assoc();
+        $stmt->close();
+        return $contact;
     }
 
-    public function updatedata ($data=[])
+    static function updateContact($data=[])
     {
-        $new_NO_HP = $data['NO_HP'];
-        $new_Owner = $data['Owner'];
-        $id = $data['NO_ID'];
-        $stmt = $this->conn->prepare("UPDATE list_contact SET cNO_HP = ?, Owner = ?, user_id = ? WHERE id = ?");
-        $stmt->bind_param("ssi", $new_NO_HP, $new_Owner, $id);
+        $stmt = self::$conn->prepare("UPDATE list_contact SET NO_HP = ?, Owner = ?, NO_ID = ? WHERE id = ?");
+        $stmt->bind_param("ssii", $data['NO_HP'], $data['Owner'], $data['NO_ID'], $data['id']);
         $stmt->execute();
-        return $stmt->affected_rows;
+        $affectedRows = $stmt->affected_rows;
+        $stmt->close();
+        return $affectedRows;
     }
 
-    public function closeConnection()
+    static function deleteContact($id)
     {
-        $this->conn->close();
+        $stmt = self::$conn->prepare("DELETE FROM list_contact WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $affectedRows = $stmt->affected_rows;
+        $stmt->close();
+        return $affectedRows;
     }
 }
