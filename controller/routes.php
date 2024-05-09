@@ -2,20 +2,20 @@
 
 // get
 
-route('login', 'get', 'AuthController::login');
-route('register', 'get', 'AuthController::register');
-route('dashboard/logout', 'get', 'AuthController::logout');
-route('dashboard', 'get', 'DashController::index');
+Router::url('login', 'get', 'AuthController::login');
+Router::url('register', 'get', 'AuthController::register');
+Router::url('dashboard/logout', 'get', 'AuthController::logout');
+Router::url('dashboard', 'get', 'DashController::index');
 
 // post
 
-route('login', 'post', 'AuthController::SaveLogin');
-route('register', 'post', 'AuthController::newRegister');
-route('dashboard/tambahdata', 'post', 'ContactController::createdata');
-route('dashboard/editdata', 'post', 'ContactController::updatedata');
-route('dashboard/deletedata', 'post', 'ContactController::deletedata');
+Router::url('login', 'post', 'AuthController::SaveLogin');
+Router::url('register', 'post', 'AuthController::newRegister');
+Router::url('dashboard/tambahdata', 'post', 'ContactController::createContact');
+Router::url('dashboard/editdata', 'post', 'ContactController::updateContact');
+Router::url('dashboard/deletedata', 'post', 'ContactController::deleteContact');
 
 
-route('/', 'get', function () {
-    echo ('Halo, test 1 2 3');
+Router::url('/', 'get', function () {
+    header('Location: login');
 });

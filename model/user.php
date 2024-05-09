@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../app/config/dbconn.php';
+include_once __DIR__ . '/config/dbconn.php';
 
 class User
 {
