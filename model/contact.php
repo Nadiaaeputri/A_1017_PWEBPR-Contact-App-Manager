@@ -10,28 +10,20 @@ class Contact
         self::$conn = $connection;
     }
 
-    static function getAllContacts($userId)
+    static function select( )
     {
-        $stmt = self::$conn->prepare("SELECT * FROM list_contact WHERE NO_ID = ?");
-        $stmt->bind_param("i", $userId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $contacts = [];
-        while ($row = $result->fetch_assoc()) {
-            $contacts[] = $row;
-        }
-        $stmt->close();
-        return $contacts;
+        $query = "SELECT * FROM list_contact";
+        $result = mysqli_query(self::$conn, $query);
+        return $result;
     }
 
-    static function createContact($data=[])
+    static function createContact($NO_HP,$Owner)
     {
-        $stmt = self::$conn->prepare("INSERT INTO list_contact (NO_HP, Owner) VALUES (?, ?, NOW())");
-        $stmt->bind_param("ssi", $data['NO_HP'], $data['Owner'], $data['NO_ID']);
-        $stmt->execute();
-        $insertedId = $stmt->insert_id;
-        $stmt->close();
-        return $insertedId;
+        $query = "INSERT INTO list_contact (NO_HP, Owner) VALUES (?, ?)";
+        $stmt = self::$conn->prepare($query);
+        $stmt->bind_param("ss", $NO_HP,$Owner);
+        $result = $stmt->execute();
+        return $result;
     }
 
     static function getContactById($id)
@@ -45,23 +37,21 @@ class Contact
         return $contact;
     }
 
-    static function updateContact($data=[])
+    static function updateContact($id,$new_NO_HP,$new_Owner)
     {
-        $stmt = self::$conn->prepare("UPDATE list_contact SET NO_HP = ?, Owner = ?, NO_ID = ? WHERE id = ?");
-        $stmt->bind_param("ssii", $data['NO_HP'], $data['Owner'], $data['NO_ID'], $data['id']);
-        $stmt->execute();
-        $affectedRows = $stmt->affected_rows;
-        $stmt->close();
-        return $affectedRows;
+        $query = "UPDATE list_contact SET NO_HP = ?, Oener = ? WHERE NO_ID = ?";
+        $stmt = self::$conn->prepare($query);
+        $stmt->bind_param("ssi", $new_NO_HP,$new_Owner,$id);
+        $result = $stmt->execute();
+        return $result;
     }
 
     static function deleteContact($id)
     {
-        $stmt = self::$conn->prepare("DELETE FROM list_contact WHERE id = ?");
+        $query = "DELETE FROM list_contact WHERE NO_ID = ?";
+        $stmt = self::$conn->prepare($query);
         $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $affectedRows = $stmt->affected_rows;
-        $stmt->close();
-        return $affectedRows;
+        $result = $stmt->execute();
+        return $result;
     }
 }
