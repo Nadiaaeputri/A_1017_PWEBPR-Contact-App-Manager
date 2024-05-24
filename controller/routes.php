@@ -1,5 +1,9 @@
 <?php
 
+include_once 'config/static.php';
+include_once 'controller/main.php';
+include_once 'function/main.php';
+
 // get
 
 Router::url('login', 'get', 'AuthController::login');

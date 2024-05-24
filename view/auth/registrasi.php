@@ -4,7 +4,7 @@
             <div class="form-header">
                 <h2>Sign up</h2> <br>
             </div>
-            <form action="registrasi.php" method="post"> <!-- Ganti action menjadi registrasi.php -->
+            <form action="registrasi.php" method="post">
                 <div class="field input">
                     <label for="longname">Nama</label>
                     <input type="text" name="longname" id="longname" required>
